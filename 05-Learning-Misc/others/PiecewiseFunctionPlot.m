@@ -15,6 +15,6 @@ for i=1:length(x)
    end
 end
 plot(x,y);
-title('OmerHootiya');
+title('Piecewise Function');
 xlabel('x-->');
 ylabel('y-->');

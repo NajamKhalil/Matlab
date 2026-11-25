@@ -3,7 +3,7 @@
 % Email: najamkhalil123@gmail.com
 
 clc;clear all;close all;
-pc=pcread('SaudHighFull.ply');
+pc=pcread('FaceScanFull.ply');
 x=pc.Location(:,1);
 y=pc.Location(:,2);
 z=pc.Location(:,3);

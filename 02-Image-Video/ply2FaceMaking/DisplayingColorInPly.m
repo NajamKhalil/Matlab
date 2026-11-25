@@ -20,5 +20,5 @@ I = im2double(imread('peppers.png'));
 J = flipud(imresize(I,size(newX)));
 pc.Color=uint8(255*reshape(J,[],3));
 pcshow(pc);
-pcwrite(pc,'SaudHighColor','PLYFormat','ascii');
-pcwrite(pc,'SaudHighColorbinary','PLYFormat','binary');
+pcwrite(pc,'FaceScanColorAscii','PLYFormat','ascii');
+pcwrite(pc,'FaceScanColorBinary','PLYFormat','binary');

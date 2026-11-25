@@ -3,7 +3,7 @@
 % Email: najamkhalil123@gmail.com
 
 clc;clear all;close all;
-image = rgb2gray(imread('Bilal.jpeg'));
+image = rgb2gray(imread('SamplePortrait.jpeg'));
 filter=fspecial('gaussian',10);
 image =image; %Gaussain
 [r,c]=size(image);

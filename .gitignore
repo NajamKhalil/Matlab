@@ -1,0 +1,37 @@
+# MATLAB autosaves and temporary files
+*.asv
+*.m~
+*.mat~
+~$*
+*.tmp
+
+# Compiled / generated binaries
+*.o
+*.obj
+*.exe
+*.lib
+*.exp
+*.dll
+*.mexw64
+*.mexw32
+*.ctf
+
+# MATLAB Coder build metadata
+**/buildInfo.mat
+**/codeInfo.mat
+**/cfiGuiReport.mat
+**/gcGuiReport.mat
+**/codedescriptor.dmr
+**/report.mldatx
+**/*.rsp
+**/*.mk
+**/*.mki
+**/contents_file.tmp
+
+# Generated Coder HTML reports
+**/codegen/**/html/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

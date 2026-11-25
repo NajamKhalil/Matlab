@@ -1,0 +1,55 @@
+# Project: testC
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o eml_rand.o eml_rand_mcg16807_stateful.o eml_rand_mt19937ar_stateful.o eml_rand_shr3cong_stateful.o pause.o rand.o randomNumber_data.o randomNumber_initialize.o randomNumber_terminate.o
+LINKOBJ  = main.o eml_rand.o eml_rand_mcg16807_stateful.o eml_rand_mt19937ar_stateful.o eml_rand_shr3cong_stateful.o pause.o rand.o randomNumber_data.o randomNumber_initialize.o randomNumber_terminate.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = testC.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+eml_rand.o: eml_rand.c
+	$(CC) -c eml_rand.c -o eml_rand.o $(CFLAGS)
+
+eml_rand_mcg16807_stateful.o: eml_rand_mcg16807_stateful.c
+	$(CC) -c eml_rand_mcg16807_stateful.c -o eml_rand_mcg16807_stateful.o $(CFLAGS)
+
+eml_rand_mt19937ar_stateful.o: eml_rand_mt19937ar_stateful.c
+	$(CC) -c eml_rand_mt19937ar_stateful.c -o eml_rand_mt19937ar_stateful.o $(CFLAGS)
+
+eml_rand_shr3cong_stateful.o: eml_rand_shr3cong_stateful.c
+	$(CC) -c eml_rand_shr3cong_stateful.c -o eml_rand_shr3cong_stateful.o $(CFLAGS)
+
+pause.o: pause.c
+	$(CC) -c pause.c -o pause.o $(CFLAGS)
+
+rand.o: rand.c
+	$(CC) -c rand.c -o rand.o $(CFLAGS)
+
+randomNumber_data.o: randomNumber_data.c
+	$(CC) -c randomNumber_data.c -o randomNumber_data.o $(CFLAGS)
+
+randomNumber_initialize.o: randomNumber_initialize.c
+	$(CC) -c randomNumber_initialize.c -o randomNumber_initialize.o $(CFLAGS)
+
+randomNumber_terminate.o: randomNumber_terminate.c
+	$(CC) -c randomNumber_terminate.c -o randomNumber_terminate.o $(CFLAGS)

@@ -1,0 +1,8 @@
+LIBRARY Plotter_mex.mexw64
+EXPORTS
+mexFunction
+emlrtMexFcnProperties
+Plotter
+Plotter_initialize
+Plotter_terminate
+Plotter_atexit

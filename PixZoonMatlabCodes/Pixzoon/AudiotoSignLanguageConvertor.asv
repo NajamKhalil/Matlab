@@ -1,0 +1,56 @@
+clc;clear all;close all;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specify the folder where the output files exist to clear the folder.
+myFolder = 'C:\Matlab\Pixzoon\OutputVideos';
+% Check to make sure that folder actually exists.  Warn user if it doesn't.
+if ~isdir(myFolder)
+  errorMessage = sprintf('Error: The following folder does not exist:\n%s', myFolder);
+  uiwait(warndlg(errorMessage));
+  return;
+end
+% Get a list of all files in the folder with the desired file name pattern.
+filePattern = fullfile(myFolder, '*.fig'); % Change to whatever pattern you need.
+theFiles = dir(filePattern);
+for k = 1 : length(theFiles)
+  baseFileName = theFiles(k).name;
+  fullFileName = fullfile(myFolder, baseFileName);
+  fprintf(1, 'Now deleting %s\n', fullFileName);
+  delete(fullFileName);
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+listing = dir('C:\Matlab\Pixzoon');
+len=length(listing);
+fileReadingIteration=1;
+for(i=1:len)
+    namelen=length(listing(i).name);
+    if(namelen>4)
+        if( strcmp(listing(i).name(namelen-3:namelen),'.mp4')==1)
+          videoFileList(fileReadingIteration,:)=sprintf(listing(i).name);
+          fileReadingIteration=fileReadingIteration+1;
+        end
+    end
+end
+[r,c]=size(videoFileList);
+se = strel('line',11,90);
+for(i=1:r)
+    v = VideoReader(videoFileList(i,:));
+    outputVideo = VideoWriter(fullfile('C:\Matlab\Pixzoon\OutputVideos',sprintf('Edges%s',videoFileList(i,:))),'MPEG-4');
+    outputVideo.FrameRate = v.FrameRate;
+    open(outputVideo)
+    numberofFrames=floor(v.FrameRate*v.Duration);
+    for(j=1:numberofFrames)
+        fprintf('|Current File %s |%.2f%%| Percent Completed|\n',videoFileList(i,:),(j/numberofFrames)*100);
+        frame = rgb2gray(read(v,j));
+        binaryFrame=imbinarize(frame);
+        edgesFrame = imdilate(binaryFrame,se)-imerode(binaryFrame,se);
+%          subplot 221
+%          imshow(frame)
+%          subplot 222
+%          imshow(binaryFrame)
+%          subplot 223
+%          imshow(edgesFrame)
+%          drawnow
+        writeVideo(outputVideo,abs(max(max(edgesFrame))-edgesFrame));
+    end
+    close(outputVideo);
+end

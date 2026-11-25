@@ -1,0 +1,37 @@
+1|0|2|8|0|0|0|0|0|
+[REPEAT #4] x50
+[WAIT] 250
+[PRESSKEY] 86;13;v;return
+[WAIT] 300
+[PRESSKEY] 69;13;e;return
+[WAIT] 140
+[PRESSKEY] 67;13;c;return
+[WAIT] 400
+[PRESSKEY] 84;13;t;return
+[WAIT] 239
+[PRESSKEY] 79;13;o;return
+[WAIT] 299
+[PRESSKEY] 82;13;r;return
+[WAIT] 199
+[PRESSKEY] 73;13;i;return
+[WAIT] 300
+[PRESSKEY] 84;13;t;return
+[WAIT] 301
+[PRESSKEY] 83;13;s;return
+[WAIT] 320
+[PRESSKEY] 77;13;m;return
+[WAIT] 400
+[PRESSKEY] 69;13;e;return
+[WAIT] 299
+[PRESSKEY] 78;13;n;return
+[WAIT] 200
+[PRESSKEY] 65;13;a;return
+[WAIT] 199
+[PRESSKEY] 74;13;j;return
+[WAIT] 256
+[PRESSKEY] 65;13;a;return
+[WAIT] 200
+[PRESSKEY] 77;13;m;return
+[WAIT] 10000
+[END-REPEAT #4]
+
